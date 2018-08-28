@@ -1,0 +1,36 @@
+<!--<div *ngFor="let task of tasks;">
+  <p (click)="onClick(task.id)" [style.color]="task.is_high_priority ? 'red' : 'black'">{{task.name}}</p>
+</div>-->
+
+<table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell [style.color]="element.is_high_priority ? 'red' : 'black'" *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="tags">
+    <th mat-header-cell *matHeaderCellDef> Tags </th>
+    <td mat-cell [style.color]="element.is_high_priority ? 'red' : 'black'" *matCellDef="let element"> {{element.tags}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actual_effort">
+    <th mat-header-cell *matHeaderCellDef> Actual effort </th>
+    <td mat-cell [style.color]="element.is_high_priority ? 'red' : 'black'" *matCellDef="let element"> {{element.actual_effort}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estimated_effort">
+    <th mat-header-cell *matHeaderCellDef> Estimated effort </th>
+    <td mat-cell [style.color]="element.is_high_priority ? 'red' : 'black'" *matCellDef="let element"> {{element.estimated_effort}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="due_date">
+    <th mat-header-cell *matHeaderCellDef> Due date </th>
+    <td mat-cell [style.color]="element.is_high_priority ? 'red' : 'black'" *matCellDef="let element"> {{element.due_date | date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr class="row-data" mat-row (click)="onClick(row.id)" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

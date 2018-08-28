@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.row-data {
+  cursor: pointer;
+  &:hover {
+    background-color: darken(#ffffff, 15%);
+  }
+}
+
